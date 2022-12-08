@@ -1,13 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Ubuntu&display=swap');
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #eee6e6 !important;
+}
+.navbar {
+  padding: 0.5rem 0.5rem !important;
+}
+.navbar-brand {
+  margin-left: 10%;
+  margin-top: 0px;
+  font-family: 'Montserrat', sans-serif !important;
+  padding-top: 0% !important;
+}
+.logo{
+  width: 150px;
+  height: 150px;
+}
+.nav-link {
+  font-family: 'Ubuntu', sans-serif;
+}
+.left-navs {
+  margin-right: 0%;
+}
+.right-navs {
+  margin-left: 0%;
+}
+.left-navs .nav-link {
+  margin-right: 20%;
+}
+.right-navs .nav-link {
+  margin-left: 20%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.btn {
+  width: 150px;
 }
