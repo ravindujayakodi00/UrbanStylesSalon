@@ -1,37 +1,36 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import React from 'react';
 
-const CollapsibleNavbar= () => {
+function CollapsibleExample() {
   return (
-    
     <div>
-        <div>
-
-        </div>
-        <div className='navbar-navbar'>
-        <Navbar collapseOnSelect variant='light'>
-            <Container>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="nav-item left-navs">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/">About</Nav.Link>
-                    <Nav.Link className='services' href="/">Our Services</Nav.Link>
-                </Nav>    
-                <Navbar.Brand href="/"><img className='logo' src="https://i.ibb.co/QF2KXsW/logo.png" alt="fdf" /></Navbar.Brand>
-                <Nav className="nav-item right-navs">    
-                    <Nav.Link href="/">Contact</Nav.Link>
-                    <Nav.Link href="/">Login</Nav.Link>
-                    <Nav.Link href="/"><button className='btn btn-outline-dark'>Book Now</button></Nav.Link>
-                </Nav>
-               
-                </Navbar.Collapse>
-        </Container>
-        </Navbar>
-        </div>
+          <nav className='flex justify-between mx-20'>
+            <ul className='flex items-center'>
+              <li>
+                <a href="/" className="px-5 no-underline text-gray-900 hover:text-gray-400">Home</a>
+              </li>
+              <li>
+                <a href="/" className="px-5 no-underline text-gray-900 hover:text-gray-400">About </a>
+              </li>
+              <li>
+                <a href="/" className="px-5 no-underline text-gray-900 hover:text-gray-400">Our Services</a>
+              </li>
+            </ul>
+            <img width="130px" src="https://i.ibb.co/QF2KXsW/logo.png" alt="logo" />
+            <ul className='flex items-center'>
+              <li>
+                <a href="/" className="px-5 no-underline text-gray-900 hover:text-gray-400">Contact</a>
+              </li>
+              <li>
+                <a href="/" className="px-5 no-underline text-gray-900 hover:text-gray-400">Login</a>
+              </li>
+              <li>
+                <button className='btn btn-outline-dark px-4'>Book Now</button>
+              </li>
+             
+            </ul>
+          </nav>
     </div>
   );
 }
 
-export default CollapsibleNavbar;
+export default CollapsibleExample;

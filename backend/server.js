@@ -1,8 +1,9 @@
-require('dotenv').config();
-
 const express = require('express');
 const mongoose = require('mongoose');
-const employeeRoutes = require('./routes/employees');
+require('dotenv').config();
+
+//routes imports
+const appointmentRoutes = require('./routes/appointments');
 
 //express app
 const app = express();
@@ -16,10 +17,14 @@ app.use((req, res, next) => {
 })
 
 //routes
-app.use('/api/employees', employeeRoutes);
+
+app.use('/api/appointments', appointmentRoutes);
+
+mongoose.set('strictQuery', true);
 
 // connect to DB
-mongoose.connect(process.env.MONGO_URI)
+mongoose
+.connect(process.env.MONGO_URI)
     .then(() => {
         //listen for requests
         app.listen(process.env.PORT, () => {
@@ -27,7 +32,7 @@ mongoose.connect(process.env.MONGO_URI)
         });
     })
     .catch((error) => {
-        console.log(error);
+        console.log("Error");
     });
 
 
