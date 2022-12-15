@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 //routes imports
-const appointmentRoutes = require('./routes/appointments');
+const appointmentRoute = require('./routes/appointments');
+const authRoute = require('./routes/auth');
+const clientsRoute = require('./routes/clients');
+const employeesRoute = require('./routes/employees');
 
 //express app
 const app = express();
@@ -18,7 +21,11 @@ app.use((req, res, next) => {
 
 //routes
 
-app.use('/api/appointments', appointmentRoutes);
+app.use('/api/auth', authRoute);
+app.use('/api/appointments', appointmentRoute);
+app.use('/api/clients', clientsRoute);
+app.use('/api/employees', employeesRoute);
+
 
 mongoose.set('strictQuery', true);
 
