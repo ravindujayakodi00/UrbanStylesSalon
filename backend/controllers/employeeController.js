@@ -1,6 +1,41 @@
-const { default: mongoose } = require("mongoose");
-
 const Employee = require("../models/employeeModel");
+const jwt = require('jsonwebtoken');
+
+const createToken = (_id) => {
+    return jwt.sign({_id}, process.env.EMPSECRET, {expiresIn: '1d'});
+}
+//login employee
+const loginEmployee = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const employee = await Employee.login(email, password);
+
+        //create token
+        const token = createToken(employee._id);
+
+        res.status(200).json({email,token});
+    }catch (error) {
+        res.status(400).json({message: error.message});
+    }
+}
+
+//create employee
+const createEmployee = async (req, res) => {
+    const { firstName, lastName, phone, position, salary, email, password  } = req.body;
+
+    try {
+        const employee = await Employee.createemp(firstName, lastName, phone, position, salary, email, password);
+
+        //create token
+        const token = createToken(employee._id);
+
+        res.status(200).json({firstName,lastName,phone,position,salary,email, token});
+    }catch (error) {
+        res.status(401).json({message: error.message});
+    }
+}
+
 
 const getAllEmployees = async (req, res) => {
     const employees = await Employee.find().sort({ createdAt: -1 });
@@ -24,23 +59,7 @@ const getEmployee = async (req, res) => {
     res.status(200).json(employee);
 };
 
-const createEmployee = async (req, res) => {
 
-    const { employee, client, date, time, service, duration, price, notes } = req.body;
-    
-
-    try {
-        if (!employee || !client || !date || !time || !service || !duration || !price || !notes){
-            return res.status(400).json({ message: "Please fill all the fields" });
-        }
-
-        const employee = await Employee.create({ employee, client, date, time, service, duration, price, notes });
-        res.status(200).json(employee);
-    } 
-    catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-};
 
 //delete a employee
 const deleteEmployee = async (req,res) => {
@@ -78,10 +97,13 @@ const updateEmployee = async (req,res) => {
     res.status(200).json(employee);
 }
 
+
+
 module.exports = {
     getAllEmployees,
     getEmployee,
     createEmployee,
+    loginEmployee,
     deleteEmployee,
     updateEmployee,
 }
