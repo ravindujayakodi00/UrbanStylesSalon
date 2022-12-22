@@ -30,7 +30,7 @@ const createAppointment = async (req, res) => {
     
 
     try {
-        if (!employee || !client || !date || !time || !service || !duration || !price || !notes){
+        if (!employee || !client || !date || !time || !service || !duration || !price ){
             return res.status(400).json({ message: "Please fill all the fields" });
         }
 
