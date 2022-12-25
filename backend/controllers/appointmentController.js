@@ -34,6 +34,12 @@ const createAppointment = async (req, res) => {
             return res.status(400).json({ message: "Please fill all the fields" });
         }
 
+        //validate if the employee is already booked
+        const isEmployeeBooked = await Appointment.findOne({ employee, date, time });
+        if (isEmployeeBooked) {
+            return res.status(400).json({ message: "The employee is already booked" });
+        }
+
         const appointment = await Appointment.create({ employee, client, date, time, service, duration, price, notes });
         res.status(200).json(appointment);
     } 
