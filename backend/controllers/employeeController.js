@@ -1,3 +1,5 @@
+const { default: mongoose } = require("mongoose");
+
 const Employee = require("../models/employeeModel");
 const jwt = require('jsonwebtoken');
 
@@ -47,13 +49,13 @@ const getEmployee = async (req, res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).send("No employee with that id");
+        return res.status(404).send("No Employee with that id");
     }
 
     const employee = await Employee.findById(id);
 
     if (!employee) {
-        return res.status(404).send("No employee with that id");
+        return res.status(404).send("No Employee with that id");
     }
 
     res.status(200).json(employee);

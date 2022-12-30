@@ -3,21 +3,21 @@ import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 
-const CollapsibleNavbar = () => {
-
+const Navbar = () => {
   const { logout } = useLogout()
-
   const { user } = useAuthContext()
 
   const handleClick = () => {
     logout();
   }
 
+
   return (
     <header>
       <div className="container">
+        
         <Link to="/">
-          <h1>Workout Buddy</h1>
+          <h1>Urban Styles</h1>
         </Link>
         <nav>
           {user && (
@@ -38,4 +38,4 @@ const CollapsibleNavbar = () => {
   )
 }
 
-export default CollapsibleNavbar
+export default Navbar
