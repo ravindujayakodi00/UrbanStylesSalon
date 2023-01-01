@@ -1,8 +1,18 @@
-* {
-  background: #ecd9d9;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+a {
+  text-decoration: none !important;
+  font-family: poppins;
 }
 
-/* navbar brand align center */
-.navbar-brand {
-  margin-right: 30% !important;
+.logo {
+  margin-left: 48%;  
+}
+.logo img {
+  width: 100px;
+  height: 100px;
 }

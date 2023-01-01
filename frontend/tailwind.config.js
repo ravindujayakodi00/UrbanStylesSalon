@@ -1,5 +1,3 @@
-const colors = require('tailwindcss/colors');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,15 +5,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundColor: {
-        'roseco': '#ECE3E3',
+      colors: {
+        gradientpink: "#ead1cc",
+        gradientblue: "#b5bbcb",
       },
-      color: {
-        'font' : '#212832'
-      }
     },
   },
+
   plugins: [
-    require('flowbite/plugin')
+
   ],
+ 
 }

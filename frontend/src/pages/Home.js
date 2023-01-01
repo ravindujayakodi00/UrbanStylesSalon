@@ -1,9 +1,10 @@
+import MainNavbar from "../components/Navbar"
 
 const Home = () => {
     return (
-        <div>
-            <h1>Home</h1>   
-        </div>
+        <section className="top-section bg-gradient-to-t from-gradientblue to-gradientpink h-screen">
+            <MainNavbar />
+        </section>
     )
     }
 
