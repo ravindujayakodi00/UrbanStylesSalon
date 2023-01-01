@@ -1,41 +1,44 @@
-import { Link } from 'react-router-dom'
-import { useLogout } from '../hooks/useLogout'
-import { useAuthContext } from '../hooks/useAuthContext'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-
-const Navbar = () => {
-  const { logout } = useLogout()
-  const { user } = useAuthContext()
-
-  const handleClick = () => {
-    logout();
-  }
-
-
+function BasicExample() {
   return (
-    <header>
-      <div className="container">
+    <Navbar expand="lg">
+      <Container>
+      <Navbar.Brand href="/">
+          <img 
+          src= 'https://i.ibb.co/BTqXdM4/logo.png'
+          alt="Canvas Logo"
+          width="100px"
+          height="100px"
+          />
+        </Navbar.Brand>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/">Link</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        <Navbar.Brand href="/">
+          <img 
+          src= 'https://i.ibb.co/BTqXdM4/logo.png'
+          alt="Canvas Logo"
+          width="100px"
+          height="100px"
+          />
+        </Navbar.Brand>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link className='btn btn-outline-dark' href="/">Login</Nav.Link>
+            <Nav.Link className='btn btn-outline-dark' href="/">Signup</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
-        <Link to="/">
-          <h1>Urban Styles</h1>
-        </Link>
-        <nav>
-          {user && (
-          <div>
-            <span>{user.email}</span>
-            <button onClick= {handleClick}>Log Out</button>
-          </div>
-          )}
-          {!user && (
-          <div>
-            <Link to="/login">Log In</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
-          )}
-        </nav>
-      </div>
-    </header>
-  )
+      </Container>
+    </Navbar>
+  );
 }
 
-export default Navbar
+export default BasicExample;
