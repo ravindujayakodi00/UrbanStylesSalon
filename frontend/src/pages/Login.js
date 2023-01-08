@@ -13,26 +13,32 @@ const Login = () => {
     }
 
     return(
-        <form className='signup' onSubmit = {handleSubmit}>
-            <h3>Log In</h3>
+        <div className='min-h-screen bg-gradient-to-t from-gradientblue to-gradientpink h-screen'>
+            <div className='container mx-auto'>
+                
 
-            <label>Email: </label>
-            <input 
-                type="email" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-            />
+            </div>
+        </div>
+        // <form className='signup ' onSubmit = {handleSubmit}>
+        //     <h3 className=''>Log In</h3>
 
-            <label>Password: </label>
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+        //     <label >Email: </label>
+        //     <input 
+        //         type="email" 
+        //         value={email} 
+        //         onChange={(e) => setEmail(e.target.value)} 
+        //     />
 
-            <button disabled={isLoading} type="submit">Log In</button>
-            {error && <div className='error'>{error}</div>}
-        </form>
+        //     <label>Password: </label>
+        //     <input
+        //         type="password"
+        //         value={password}
+        //         onChange={(e) => setPassword(e.target.value)}
+        //     />
+
+        //     <button type="submit">Log In</button>
+        //     {error && <div className='error'>{error}</div>}
+        // </form>
     )
 }
 

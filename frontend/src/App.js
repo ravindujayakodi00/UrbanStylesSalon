@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={user ? <Home /> : <Navigate to="login" />} />
+          <Route path="/" element={<Home/>} />
           <Route
             path="/signup"
             element={!user ? <Signup /> : <Navigate to="/" />}

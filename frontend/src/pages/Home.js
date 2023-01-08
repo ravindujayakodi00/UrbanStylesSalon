@@ -4,7 +4,9 @@ const Home = () => {
     return (
         <section className="top-section bg-gradient-to-t from-gradientblue to-gradientpink h-screen">
             <MainNavbar />
+            
         </section>
+
     )
     }
 
