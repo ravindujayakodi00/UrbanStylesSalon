@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSignup } from '../hooks/useSignup';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
     const [firstName, setFirstName] = useState('');
@@ -16,11 +17,12 @@ const Signup = () => {
     }
 
     return(
-        <section className='login-section bg-gray-50 min-h-screen flex items-center justify-center'>
+
+        <section className='login-section min-h-screen flex items-center justify-center'>
             <div className='bg-gray-100 flex rounded-2xl max-w-4xl p-3'>
                 {/* form */}
                 <div className='sm:w-1/2 px-12'>
-                    <h2 className='font-bold text-2xl text-[#181D31]'>Sign Up</h2>
+                    <h2 className='mt-4 font-bold text-2xl text-[#181D31]'>Sign Up</h2>
                     <p className=' mt-4 text-sm text-[#181D31]'>If you don't have an acoount, Sign up here.</p>
 
                     <form onSubmit = {handleSubmit} className='flex flex-col gap-4'>
@@ -62,14 +64,22 @@ const Signup = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
 
-                        <button type='submit' className='bg-[#181D31] rounded-xl text-white py-2'>Sign Up</button>
+                        <button disabled={isLoading} type='submit' className='bg-[#181D31] rounded-xl text-white py-2'>Sign Up</button>
                         {error && <div className='error'>{error}</div>}
+                        {success && <div className='success'>{success}</div>}
+
                     </form>
 
-                    <div className='mt-10 grid grid-cols-3 items-center text-gray-400'>
+                    <div className='mt-8 grid grid-cols-3 items-center text-gray-400'>
                         <hr className='border-gray-400'/>
                         <p className='mt-3 text-center'>OR</p>
                         <hr className='border-gray-400'/>
+                    </div>
+
+
+                    <div className='mt-2 text-xs flex justify-between items-center'>
+                        <p className='mt-3'>Already have an account?</p>
+                        <Link to='/login' className='py-2 px-5 bg-white border rounded-xl text-[#181D31]'>Login</Link>
                     </div>
                 </div>
                 {/* image */}

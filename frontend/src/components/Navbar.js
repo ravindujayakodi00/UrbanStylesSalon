@@ -43,6 +43,14 @@ function MainNavbar() {
               Home
             </Link>
           </li>
+          {/* <li className="md:hidden">
+            <Link
+              className="text-gray-800 hover:text-gray-500 lg:ml-10 ml-8"
+              to="/"
+            >
+              Make an Appointment
+            </Link>
+          </li> */}
           <li>
             <Link
               className="text-gray-800 hover:text-gray-500 lg:ml-10 ml-8"
@@ -82,7 +90,7 @@ function MainNavbar() {
             <div className="flex gap-4">
             <li>
               <Link
-                className="text-gray-800 hover:text-gray-500 lg:mr-8 mr-2"
+                className="text-gray-800 hover:text-gray-500 lg:mr-8 mr-2 py-2"
                 to="login"
               >
                 Login
@@ -99,10 +107,17 @@ function MainNavbar() {
             </div>
           )}
           {user && (
-          <div>
+          <div className="flex my-0 py-0">
+          <li className="sm:block hidden"> 
+            <Link onClick={handleLogout}
+                className="btn btn-dark text-gray-800 mr-6 px-3 py-2"
+                to="/">
+                Make an Appointment
+            </Link>
+          </li>
           <li>
               <Link onClick={handleLogout}
-                className="text-gray-800 hover:text-gray-500 bg-white lg:mr-20 mr-0 px-3 py-2 rounded-full "
+                className="btn btn-outline-dark text-gray-800 lg:mr-20 mr-0 px-3 py-2"
                 to="/"
               >
                 Logout

@@ -35,3 +35,16 @@ div.error {
   border-radius: 10px;
   margin: 10px 0 0 0;
 }
+
+div.success {
+  padding: 10px;
+  background: #e7f9f0;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: 10px;
+  margin: 10px 0 0 0;
+}
+
+.btn {
+  border-radius: 9999px !important;
+}

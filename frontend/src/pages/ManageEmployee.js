@@ -2,7 +2,7 @@ import { useEffect,useState } from "react";
 import * as React from "react";
 import {Link} from "react-router-dom";
 import { Alert } from "@mui/material";
-import { useEmployeesContext } from "../hooks/useEmployeesContext";
+import { useEmployeesContext } from "../hooks/useEmployeeContext";
 import AdminSidebar from "../components/AdminSidebar";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -43,7 +43,7 @@ const ManageEmployees = () => {
     
     
     return (
-        <div>
+        <div className="ml-20">
             <Link className="btn btn-dark addnew" to='/addnewemployee'>Add New Employee</Link>
             <AdminSidebar/>
             <div className="employeeDetails">

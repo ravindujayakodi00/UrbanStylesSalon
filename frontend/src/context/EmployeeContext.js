@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useReducer } from "react";
 
-export const EmployeesContext = createContext();
+export const EmployeeContext = createContext();
 
 export const employeesReducer = (state, action) => {
     switch (action.type) {
@@ -41,9 +41,9 @@ export const EmployeesContextProvider = ({ children }) => {
     })
 
     return (
-        <EmployeesContext.Provider value={{...state, dispatch}}>
+        <EmployeeContext.Provider value={{...state, dispatch}}>
             { children }
-        </EmployeesContext.Provider>
+        </EmployeeContext.Provider>
     )
 }
    
