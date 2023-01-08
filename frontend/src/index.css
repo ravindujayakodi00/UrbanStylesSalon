@@ -4,6 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+
 a {
   text-decoration: none !important;
   font-family: poppins;
@@ -17,3 +22,16 @@ a {
   height: 100px;
 }
 
+.login-section {
+  font-family: poppins;
+  color: rgb(47, 44, 44);
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 10px;
+  margin: 10px 0 0 0;
+}
