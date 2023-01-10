@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ManageEmployee from "./pages/ManageEmployee"
+import EmployeeLogin from "./pages/EmployeeLogin";
+import MyAppointments from "./pages/MyAppointments";
 
 function App() {
   const { user } = useAuthContext();
@@ -25,6 +27,14 @@ function App() {
           <Route
             path="/admin"
             element = {<ManageEmployee/>}
+          />
+          <Route
+            path="/employeelogin"
+            element = {!user ? <EmployeeLogin/> : <Navigate to="/MyAppointments" />}
+          />
+          <Route
+            path="/MyAppointments"
+            element = {user ? <MyAppointments/> : <Navigate to="/employeelogin" />}
           />
 
         </Routes>

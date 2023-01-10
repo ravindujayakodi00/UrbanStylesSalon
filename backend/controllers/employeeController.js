@@ -8,15 +8,15 @@ const createToken = (_id) => {
 }
 //login employee
 const loginEmployee = async (req, res) => {
-    const { email, password } = req.body;
+    const { empCode, password } = req.body;
 
     try {
-        const employee = await Employee.login(email, password);
+        const employee = await Employee.login(empCode, password);
 
         //create token
         const token = createToken(employee._id);
 
-        res.status(200).json({email,token});
+        res.status(200).json({empCode,token});
     }catch (error) {
         res.status(400).json({message: error.message});
     }
@@ -24,15 +24,15 @@ const loginEmployee = async (req, res) => {
 
 //create employee
 const createEmployee = async (req, res) => {
-    const { firstName, lastName, phone, position, salary, email, password  } = req.body;
+    const { empCode, firstName, lastName, phone, position, salary, email, password  } = req.body;
 
     try {
-        const employee = await Employee.createemp(firstName, lastName, phone, position, salary, email, password);
+        const employee = await Employee.createemp(empCode, firstName, lastName, phone, position, salary, email, password);
 
         //create token
         const token = createToken(employee._id);
 
-        res.status(200).json({firstName,lastName,phone,position,salary,email, token});
+        res.status(200).json({empCode,firstName,lastName,phone,position,salary,email, token});
     }catch (error) {
         res.status(401).json({message: error.message});
     }

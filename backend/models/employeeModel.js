@@ -5,8 +5,12 @@ const validator = require('validator');
 const Schema = mongoose.Schema;
 
 const employeeSchema = new Schema({
-    
-   firstName: {
+    empCode: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    firstName: {
         type: String,
         required: true,
     },
@@ -39,10 +43,10 @@ const employeeSchema = new Schema({
 },{timestamps: true});
 
 //static signup method
-employeeSchema.statics.createemp = async function (firstName, lastName, phone, position, salary, email, password){
+employeeSchema.statics.createemp = async function (empCode, firstName, lastName, phone, position, salary, email, password){
 
     //validation
-    if(!firstName || !lastName || !phone || !position || !salary || !email || !password) {
+    if(!empCode || !firstName || !lastName || !phone || !position || !salary || !email || !password) {
         throw Error('All fields are required');
     }
     if(!validator.isEmail(email)) {
@@ -67,24 +71,24 @@ employeeSchema.statics.createemp = async function (firstName, lastName, phone, p
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
 
-    const employee = await this.create({ email,password: hash, firstName, lastName, phone, position, salary});
+    const employee = await this.create({ empCode, email,password: hash, firstName, lastName, phone, position, salary});
 
     return employee;
 
 }
 
 //static login method
-employeeSchema.statics.login = async function (email, password) {
+employeeSchema.statics.login = async function (empCode, password) {
 
     //validation
-    if(!email || !password) {
+    if(!empCode || !password) {
         throw Error('All fields are required');
     }
 
-    const employee = await this.findOne({ email });
+    const employee = await this.findOne({ empCode });
 
     if(!employee) {
-        throw Error('Invalid email');
+        throw Error('Invalid Employee Code');
     }
 
     const match = await bcrypt.compare(password, employee.password);
