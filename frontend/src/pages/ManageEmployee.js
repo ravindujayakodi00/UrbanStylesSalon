@@ -43,7 +43,7 @@ const ManageEmployees = () => {
     
     
     return (
-        <div className="ml-20">
+        <div className="ml-20 mt-5">
             <Link className="btn btn-dark addnew" to='/addnewemployee'>Add New Employee</Link>
             <AdminSidebar/>
             <div className="employeeDetails">
@@ -51,13 +51,11 @@ const ManageEmployees = () => {
             <table className="table">
                     <thead>
                         <tr>
+                            <th scope="col">Employee ID</th>
                             <th scope="col">Employee Name</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Brand</th>
-                            <th scope="col">Model</th>
-                            <th scope="col">Features</th>
-                            <th scope="col">Year</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Position</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -77,13 +75,12 @@ const ManageEmployees = () => {
                     .map((employee) => (
 
                         <tr key={employee._id}>
-                            <td>{employee.employeeName}</td>
-                            <td>{employee.category}</td>
-                            <td>{employee.brand}</td>
-                            <td>{employee.model}</td>
-                            <td>{employee.features}</td>
-                            <td>{employee.year}</td>
-                            <td>Rs. {employee.price}</td>
+                            <td>{employee.empCode}</td>
+                            <td>{employee.firstName + employee.lastName}</td>
+                            <td>{employee.phone}</td>
+                            <td>{employee.email}</td>
+                            <td>{employee.position}</td>
+                            
                             <td><Link className="btn btn-dark" to={`/updateemployee/${employee._id}`}>Update</Link></td>
 
                             <td><button onClick={handleClickOpen} className="btn btn-danger">Delete</button></td>

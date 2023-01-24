@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import ManageEmployee from "./pages/ManageEmployee"
 import EmployeeLogin from "./pages/EmployeeLogin";
 import MyAppointments from "./pages/MyAppointments";
+import AddNewEmployee from "./pages/AddNewEmployee";
 
 function App() {
   const { user } = useAuthContext();
@@ -35,6 +36,10 @@ function App() {
           <Route
             path="/MyAppointments"
             element = {user ? <MyAppointments/> : <Navigate to="/employeelogin" />}
+          />
+          <Route
+            path="/AddNewEmployee"
+            element = {<AddNewEmployee/>}
           />
 
         </Routes>

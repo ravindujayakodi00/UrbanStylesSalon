@@ -109,7 +109,7 @@ function MainNavbar() {
           {user && (
           <div className="flex my-0 py-0">
           <li className="sm:block hidden"> 
-            <Link onClick={handleLogout}
+            <Link
                 className="btn btn-dark text-gray-800 mr-6 px-3 py-2"
                 to="/">
                 Make an Appointment
