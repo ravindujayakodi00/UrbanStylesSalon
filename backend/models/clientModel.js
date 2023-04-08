@@ -25,7 +25,14 @@ const clientSchema = new Schema({
     password: {
         type: String,
         required: true,
-    }
+    },
+    Appointments : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Appointment'
+        }
+    ],
+   
  
 }, {timestamps: true});
 

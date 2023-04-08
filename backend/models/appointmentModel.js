@@ -4,12 +4,14 @@ const Schema = mongoose.Schema;
 
 const appointmentSchema = new mongoose.Schema({
     
-    employee: {
-        type: String,
+    client: {
+        type: Schema.Types.ObjectId,
+        ref: 'Client',
         required: true,
     },
-    client: {
-        type: String,
+    employee : {
+        type: Schema.Types.ObjectId,
+        ref: 'Employee',
         required: true,
     },
     date: {
@@ -31,12 +33,8 @@ const appointmentSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true,
-    },
-    notes: {
-        type: String,
-        required: false,
     }
 
-});
+}, {timestamps: true});
 
 module.exports = mongoose.model("Appointment", appointmentSchema);

@@ -22,14 +22,6 @@ const employeeSchema = new Schema({
         type: String,
         required: true,
     },
-    position: {
-        type: String,
-        required: true,
-    },
-    salary: {
-        type: Number,
-        required: true,
-    },  
     email: {
         type: String,
         required: true,
@@ -39,6 +31,18 @@ const employeeSchema = new Schema({
         type: String,
         required: true,
     },
+    appointments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Appointment'
+        }
+    ],
+    payments : [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Appointment"
+        }
+    ]
 
 },{timestamps: true});
 
